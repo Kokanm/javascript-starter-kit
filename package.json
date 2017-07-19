@@ -1,0 +1,67 @@
+{
+  "name": "javascript-starter-kit",
+  "version": "1.0.0",
+  "description": "Javascript starter kit",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "babel-node buildScripts/startMessage.js",
+    "start": "npm-run-all --parallel security-check open:src lint:watch test:watch",
+    "open:src": "babel-node buildScripts/srcServer.js",
+    "lint": "esw webpack.config.* src buildScripts --color",
+    "lint:watch": "npm run lint -- --watch",
+    "security-check": "nsp check",
+    "localtunnel": "lt --port 3000",
+    "share": "npm-run-all --parallel open:src localtunnel",
+    "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
+    "test:watch": "npm run test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kokanm/javascript-starter-kit.git"
+  },
+  "author": "Kokan Malenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kokanm/javascript-starter-kit/issues"
+  },
+  "homepage": "https://github.com/Kokanm/javascript-starter-kit#readme",
+  "devDependencies": {
+    "babel-cli": "6.24.1",
+    "babel-core": "6.25.0",
+    "babel-loader": "7.1.1",
+    "babel-preset-latest": "6.24.1",
+    "babel-register": "6.24.1",
+    "chai": "4.1.0",
+    "chalk": "2.0.1",
+    "cheerio": "1.0.0-rc.2",
+    "compression": "1.7.0",
+    "cross-env": "5.0.1",
+    "css-loader": "0.28.4",
+    "eslint": "4.2.0",
+    "eslint-plugin-import": "2.7.0",
+    "eslint-watch": "3.1.2",
+    "express": "4.15.3",
+    "extract-text-webpack-plugin": "3.0.0",
+    "html-webpack-plugin": "2.29.0",
+    "jsdom": "11.1.0",
+    "json-schema-faker": "0.5.0-rc10",
+    "json-server": "0.11.2",
+    "localtunnel": "1.8.3",
+    "mocha": "3.4.2",
+    "nock": "9.0.14",
+    "npm-run-all": "4.0.2",
+    "nsp": "2.6.3",
+    "numeral": "2.0.6",
+    "open": "0.0.5",
+    "rimraf": "2.6.1",
+    "style-loader": "0.18.2",
+    "surge": "0.19.0",
+    "webpack": "3.3.0",
+    "webpack-dev-middleware": "1.11.0",
+    "webpack-hot-middleware": "2.18.2",
+    "webpack-md5-hash": "0.0.5"
+  },
+  "dependencies": {
+    "whatwg-fetch": "2.0.3"
+  }
+}
